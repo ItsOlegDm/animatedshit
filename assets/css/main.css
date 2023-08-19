@@ -26,6 +26,9 @@ input[type='text']:disabled, input[type='number']:disabled, textarea:disabled, s
     background-color: #383838;
 }
 
+textarea {
+    resize: none;
+}
 select {
     width: 100%;
 }
