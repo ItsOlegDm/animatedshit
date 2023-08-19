@@ -16,7 +16,7 @@
         
         <div class="modal" id="modal">
             <h3>Заполните квенту персонажа</h3>
-            <form action="">
+            <form action="https://php.itsolegdm.com/form.php" method="post" name="">
                 <span class="dheader">Ваш реальный возраст</span>
                 <input type="number" name="name" id="name" placeholder="100-7">
                 <span class="dheader">Имя</span>
@@ -24,14 +24,15 @@
                 
                 <span class="dheader">Почему фусти гей?</span>
                 <textarea name="" id="" cols="30" rows="10" placeholder="Потому что это база."></textarea>
-
+                <span class="dheader">Какая вы машина по гендеру?</span>
                 <select name="car_gender" required>
-                    <option value="" disabled selected> Какая вы машина по гендеру?</option>
+                    <option value="" disabled selected>Выберите один вариант.</option>
                     <option value="ford_focus">Ford focus</option>
                     <option value="toyota_corolla">Toyota Corolla</option>
                     <option value="daewoo_lanos">Daewoo Lanos</option>
                     <option value="jiguli">Jiguli</option>
-                    </select>
+                </select>
+                <input type="submit" value="Отправить">
             </form>
         </div>
     </div>

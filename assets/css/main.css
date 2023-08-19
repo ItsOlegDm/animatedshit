@@ -35,7 +35,7 @@ select {
     font-size: 11px;
     line-height: 18px;
     padding-top: 2px;
-    padding-bottom: 3px;
+    margin-bottom: 6px;
     margin-left: 5px;
 }
 
@@ -46,4 +46,25 @@ input[type='number'] {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+input[type='submit'] {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    width: 100%;
+    background: rgba(222, 97, 97, 0.75);
+    color: #e1e3e6;
+    outline: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: none;
+    padding: 8px 0 8px 0;
+    font-weight: 500;
+    font-family: 'sfpro', -apple-system,system-ui,Helvetica Neue,Roboto,sans-serif;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background: rgba(222, 97, 97, 0.94);
 }
