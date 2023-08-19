@@ -29,7 +29,8 @@ body {
     opacity: 0.8    ;
     display: flex;
     margin-top: -100px;
-    justify-content: center;
+    justify-content: center; 
+    align-items: center;
     background-color: white;
     width: 30px;
     height: 30px;
@@ -45,6 +46,7 @@ body {
     transition: width 1s;
     opacity: 0;
     transition: 1.2S;
+    height: fit-content;
 }
 
 .mdb:hover {
