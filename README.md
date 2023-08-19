@@ -1,2 +1,2 @@
 # animated_cringe
- idk animated CrInGe
+ idk animated cRiNgE
