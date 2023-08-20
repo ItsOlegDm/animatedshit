@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/anim.css">
+</head>
+<body>
+    <div class="intro" id="intro">
+        <span class="title" id="ititle" >Where the journey begins</span>
+        <div class="mdb" id="mdb">
+            <span class="mbtn" id="mbtn" onclick="modal();">Начать</span>
+        </div>
+
+        <div class="modal" id="modal">
+            <h3>Заполните квенту персонажа</h3>
+            <form id="quenta" action="http://127.0.0.1:8000/quenta" method="POST" name="">
+                <span class="dheader">Ваш реальный возраст</span>
+                <input type="number" name="real_age" required id="real_age" placeholder="1000-7">
+                <span class="dheader">Ваш Discord ID</span>
+                <input type="number" name="discord_id" required id="discord_id" placeholder="1000-7">
+                <span class="dheader">Имя</span>
+                <input type="text" name="name" required id="name" placeholder="Я тостер">
+
+                <span class="dheader">Примерно опишите своего персонажа</span>
+                <textarea name="appearance" required id="" cols="30" rows="10" placeholder="Примерно вот такой ширины и вот такой высоты."></textarea>
+                <span class="dheader">Ваш пол?</span>
+                <select name="gender" required>
+                    <option value="" disabled selected>Выберите один вариант.</option>
+                    <!-- <option value="rofls">Ламинат</option> -->
+                    <option value="male">Мужчина</option>
+                    <option value="female">Женщина</option>
+                    <option value="bag">Пакет из пятёрочки</option>
+                </select>
+                <input type="submit" value="Отправить" formmethod="post">
+            </form>
+        </div>
+    </div>
+<script>
+    let mdb = document.getElementById("mdb");
+    let intro = document.getElementById("intro");
+    let ititle = document.getElementById("ititle");
+    let mbtn = document.getElementById("mbtn");
+    setTimeout(function(){
+        intro.style.height= "100vh";
+        mdb.style.marginTop = 0;
+            setTimeout(function(){
+                mdb.style.width = "75px";
+                setTimeout(function(){
+                    mbtn.style.opacity = "1";
+                    setTimeout(function(){
+                        ititle.style.opacity = "1";
+                    }, 800)
+                }, 800)
+            }, 1500)
+    }, 500)
+
+    function modal() {
+        let mdb = document.getElementById("mdb");
+        let ititle = document.getElementById("ititle");
+        let modal = document.getElementById("modal");
+        mdb.style.opacity = 0;
+        ititle.style.opacity = 0;
+        setTimeout(function(){
+            ititle.style.display = "none";
+            mdb.style.display = "none";
+
+            modal.style.display = "flex"
+            setTimeout(function(){
+                modal.style.opacity = "1"
+            }, 80)
+        }, 1000)
+
+    }
+
+    function send_quenta(event_data) {
+        let payload = {}
+        for (let index = 0; index < event_data.srcElement.length; index++) {
+            if (event_data.srcElement[index].type != "submit") {
+                let var_name = event_data.srcElement[index].name
+                payload[var_name] = event_data.srcElement[index].value
+            }
+        }
+
+        fetch(event_data.srcElement.action, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify(payload)
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    }
+
+    let form = document.getElementById('quenta');
+    form.addEventListener("submit", function (e) {
+        e.preventDefault()
+
+        send_quenta(e)
+        // location.href = "https://discord.gg/U5GWdSppxW"
+    });
+
+</script>
+</body>
+</html>

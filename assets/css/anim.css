@@ -1,0 +1,74 @@
+@font-face {
+    font-family: sfpro;
+    src: url(assets/fonts/SF-Pro-Display-Semibold.otf);
+  }
+
+body {
+    background-color: #111111;
+}
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'sfpro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 50px;
+    justify-content: center;
+    transition: 2s;
+    width: 100%;
+    flex-direction: column;
+}
+
+.title {
+    opacity: 0;
+    margin-bottom: 20px;
+    color: white;
+    transition: 1s;
+    font-size: 24px;
+}
+.mdb {
+    opacity: 0.8    ;
+    display: flex;
+    margin-top: -100px;
+    justify-content: center; 
+    align-items: center;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    transition: 1s, margin 1.2s, width 1s;
+    overflow: hidden;
+    cursor: pointer;
+}
+.mbtn {
+    text-align: center;
+    width: 75px;
+    font-weight: 500;
+    transition: width 1s;
+    opacity: 0;
+    transition: 1.2S;
+    height: fit-content;
+}
+
+.mdb:hover {
+    opacity: 1;
+
+}
+
+
+.modal {
+    background-color: #212121;
+    transition: 1s;
+    display: none;
+    opacity: 0;
+    width: 300px;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.modal>h3 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px
+}
