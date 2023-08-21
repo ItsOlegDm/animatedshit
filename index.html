@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BetterMine: Awakening</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/anim.css">
 </head>
 <body>
     <div class="intro" id="intro">
-        <span class="title" id="ititle" >Where the journey begins</span>
+        <span class="title" id="ititle">Здесь начнётся ваше путешествие в страну грёз</span>
         <div class="mdb" id="mdb">
             <span class="mbtn" id="mbtn" onclick="modal();">Начать</span>
         </div>
 
         <div class="modal" id="modal">
             <h3>Заполните квенту персонажа</h3>
-            <form id="quenta" action="http://127.0.0.1:8000/quenta" method="POST" name="">
+            <form id="quenta" action="https://bmapi.itsolegdm.com/quenta/" method="POST" name="">
                 <span class="dheader">Ваш реальный возраст</span>
                 <input type="number" name="real_age" required id="real_age" placeholder="1000-7">
                 <span class="dheader">Ваш Discord ID</span>
@@ -25,14 +25,14 @@
                 <input type="text" name="name" required id="name" placeholder="Я тостер">
 
                 <span class="dheader">Примерно опишите своего персонажа</span>
-                <textarea name="appearance" required id="" cols="30" rows="10" placeholder="Примерно вот такой ширины и вот такой высоты."></textarea>
-                <span class="dheader">Ваш пол?</span>
+                <textarea name="description" required id="" cols="30" rows="10" placeholder="Примерно вот такой ширины и вот такой высоты."></textarea>
+                <span class="dheader">Ваш пол</span>
                 <select name="gender" required>
                     <option value="" disabled selected>Выберите один вариант.</option>
                     <!-- <option value="rofls">Ламинат</option> -->
                     <option value="male">Мужчина</option>
                     <option value="female">Женщина</option>
-                    <option value="bag">Пакет из пятёрочки</option>
+                    <!-- <option value="bag">Пакет из пятёрочки</option> -->
                 </select>
                 <input type="submit" value="Отправить" formmethod="post">
             </form>
@@ -75,7 +75,7 @@
 
     }
 
-    function send_quenta(event_data) {
+    async function send_quenta(event_data) {
         let payload = {}
         for (let index = 0; index < event_data.srcElement.length; index++) {
             if (event_data.srcElement[index].type != "submit") {
@@ -84,7 +84,7 @@
             }
         }
 
-        fetch(event_data.srcElement.action, {
+        let response = await fetch(event_data.srcElement.action, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -93,16 +93,18 @@
 
             body: JSON.stringify(payload)
         })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+        return response
     }
 
     let form = document.getElementById('quenta');
     form.addEventListener("submit", function (e) {
         e.preventDefault()
 
-        send_quenta(e)
-        // location.href = "https://discord.gg/U5GWdSppxW"
+        send_quenta(e).then((data) => {
+            if (data.status == 200) {
+                location.href = "https://discord.gg/U5GWdSppxW"
+            }
+        })
     });
 
 </script>
