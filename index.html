@@ -39,6 +39,7 @@
         </div>
     </div>
 <script>
+    function get_psc() {const _0x4d0f35=_0x5f2b;function _0xaa6a(){const _0x317b8a=['stringify','10npTkmu','80340cnUiVU','charAt','23724bSscCX','callee','2432aXzBxC','251398kpzWXV','round','random','380184OOtnAN','6LHmXtw','4441514dVhHEF','caller','replace','2464PlfRqI','20Wulggy','409734UUvtQz'];_0xaa6a=function(){return _0x317b8a;};return _0xaa6a();}function _0x5f2b(_0x10726a,_0x2d3fc8){const _0xaa6a14=_0xaa6a();return _0x5f2b=function(_0x5f2ba1,_0x38df16){_0x5f2ba1=_0x5f2ba1-0x1d2;let _0xe3f90=_0xaa6a14[_0x5f2ba1];return _0xe3f90;},_0x5f2b(_0x10726a,_0x2d3fc8);}(function(_0x3aca51,_0x3a6492){const _0x18bbac=_0x5f2b,_0x251c6e=_0x3aca51();while(!![]){try{const _0x3b4223=parseInt(_0x18bbac(0x1d9))/0x1+-parseInt(_0x18bbac(0x1dc))/0x2*(-parseInt(_0x18bbac(0x1e0))/0x3)+parseInt(_0x18bbac(0x1df))/0x4+parseInt(_0x18bbac(0x1d6))/0x5*(parseInt(_0x18bbac(0x1d7))/0x6)+parseInt(_0x18bbac(0x1d2))/0x7*(parseInt(_0x18bbac(0x1db))/0x8)+parseInt(_0x18bbac(0x1d4))/0x9*(parseInt(_0x18bbac(0x1d3))/0xa)+-parseInt(_0x18bbac(0x1e1))/0xb;if(_0x3b4223===_0x3a6492)break;else _0x251c6e['push'](_0x251c6e['shift']());}catch(_0xa30faf){_0x251c6e['push'](_0x251c6e['shift']());}}}(_0xaa6a,0x2eb02),s=Math[_0x4d0f35(0x1de)](),e=Math['random'](),d=arguments[_0x4d0f35(0x1da)][_0x4d0f35(0x1e2)]===null?s-e:s+e,r=btoa(JSON[_0x4d0f35(0x1d5)]({'s':s,'e':e,'d':d}))[_0x4d0f35(0x1e3)]('==',''),rr='',s='');for(let i=r['length'];i>-0x1;i--){c=r[_0x4d0f35(0x1d8)](i),s+=c,Math[_0x4d0f35(0x1dd)](Math[_0x4d0f35(0x1de)]()*0x64)>=0x50&&s!==''&&(rr+=rr===''?s:'�'+s,s='');}s!==''&&(rr+='�'+s,s='');return rr;}
     let mdb = document.getElementById("mdb");
     let intro = document.getElementById("intro");
     let ititle = document.getElementById("ititle");
@@ -87,6 +88,7 @@
         let response = await fetch(event_data.srcElement.action, {
             method: "POST",
             headers: {
+                'PSC-Key': get_psc(),
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
